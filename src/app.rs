@@ -8,7 +8,7 @@ use crate::config::{Config, Peaks};
 use crate::wirehose::state::CaptureEligibility;
 use crate::wirehose::{
     media_class, CommandSender, Event as PipewireEvent, PeakProcessor,
-    StateEvent,
+    PipewireError, StateEvent,
 };
 
 use anyhow::{anyhow, Result};
@@ -740,7 +740,7 @@ impl Handle for StateEvent {
     }
 }
 
-impl Handle for String {
+impl Handle for PipewireError {
     fn handle(self, app: &mut App) -> Result<bool> {
         // Handle errors
         match self {

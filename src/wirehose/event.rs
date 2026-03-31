@@ -6,13 +6,15 @@ use crate::atomic_f32::AtomicF32;
 use crate::wirehose::state::State;
 use crate::wirehose::{ObjectId, PropertyStore};
 
+pub type PipewireError = String;
+
 /// Events emitted by the PipeWire monitoring thread.
 #[derive(Debug)]
 pub enum Event {
     /// The PipeWire state has changed
     State(StateEvent),
     /// An error occurred during monitoring
-    Error(String),
+    Error(PipewireError),
     /// The [StateEvent]s representing the PipeWire state at the time of
     /// connection have been sent. wirehose is listening for changes now.
     Ready,

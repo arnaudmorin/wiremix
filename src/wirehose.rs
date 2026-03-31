@@ -20,7 +20,7 @@ mod stream_registry;
 mod sync_registry;
 
 pub use command::{Command, CommandSender};
-pub use event::{Event, StateEvent};
+pub use event::{Event, PipewireError, StateEvent};
 pub use event_sender::EventHandler;
 pub use object_id::ObjectId;
 pub use property_store::PropertyStore;
